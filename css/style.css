@@ -1,0 +1,87 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	background-color:#151530;
+	margin:0;
+}
+
+div{
+	padding:0 !important;
+	text-align: center;
+}
+
+thead th { 
+	position: sticky; 
+	top: -1px; 
+	background-color:#202040;
+	color:white;
+}
+
+td{
+	color:white;
+}
+
+table{
+	text-align: center;
+}
+
+h5{
+	margin-top:10px;
+	font-weight: 400;
+	font-size:20px;
+	text-align: left;	
+	padding-left: 20%;
+}
+
+h6{
+	margin-top: 20px;
+	font-weight: 300;
+	font-size:14px;
+	text-align: left;	
+	padding-left: 50%;
+}
+
+.red{
+	color:#d00;
+	font-weight: 700;
+}
+
+.green{
+	color:#0a0;
+	font-weight: 700;
+}
+
+.frame{
+	height:140px;
+	background-color: #1d1d39;
+	margin:10px 5px;
+	border-radius:2px;
+	color:white;
+	font-weight: 500;
+	padding:20px;
+}
+
+.confirmed, .deaths, .recovered{
+	font-size:25px;
+	letter-spacing: 1px;
+}
+
+
+
+.newConfirmed, .newDeaths, .newRecovered{
+	font-weight: 300;
+}
+
+
+
+@media (max-width: 576px){
+	h5{
+		padding-left: 30%;
+	}
+
+	h6{
+		padding-left: 35%;
+	}
+}
