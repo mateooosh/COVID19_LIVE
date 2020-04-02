@@ -11,6 +11,8 @@ xhr.onload = function() {
 		
 		for(let i=0; i<responseObject.Countries.length-2; i++){
 			panstwa.push(responseObject.Countries[i+2]);
+			panstwa[i].flag = '<img width=32 alt="flag" src="img/'+(i+1)+'.png"> ';
+			console.log(panstwa[i].flag);
 		}
 	}
 	prepare();
@@ -24,7 +26,7 @@ xhr.send(null);
 
 
 function prepare(){
-	sortowanie();
+	// sortowanie();
 	let tableRef = document.querySelector('tbody');
 	let temp ;
 	for(let i=0; i<panstwa.length; i++){
@@ -37,10 +39,10 @@ function prepare(){
 
 		// Insert a row at the end of the table
 		let newRow = tableRef.insertRow(-1);
-		newRow.insertCell(0).appendChild(document.createTextNode(panstwa[i].Country));
+		// newRow.insertCell(0).appendChild(document.createTextNode(panstwa[i].Country));
 
-		/*temp = newRow.insertCell(0);
-		$(temp).html(panstwa[i].Country+'<span></span>');*/
+		temp = newRow.insertCell(0);
+		$(temp).html(panstwa[i].flag+panstwa[i].Country);
 		
 		temp = newRow.insertCell(1);
 		$(temp).html(panstwa[i].TotalConfirmed+"<span class='red'> (+"+panstwa[i].NewConfirmed+")</span>");
@@ -50,11 +52,6 @@ function prepare(){
 
 		temp = newRow.insertCell(3);
 		$(temp).html(panstwa[i].TotalRecovered+"<span class='green'> (+"+panstwa[i].NewRecovered+")</span>");
-
-		//newRow.insertCell(1).appendChild(document.createTextNode(panstwa[i].NewConfirmed));
-		// newRow.insertCell(2).appendChild(document.createTextNode(panstwa[i].TotalConfirmed));
-		// newRow.insertCell(3).appendChild(document.createTextNode(panstwa[i].NewDeaths));
-		// newRow.insertCell(4).appendChild(document.createTextNode(panstwa[i].TotalDeaths));
 	}
 
 	$(".confirmed").html(confirmed);

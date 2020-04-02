@@ -3,13 +3,21 @@
 }
 
 body{
-	background-color:#151530;
+	background-color:#FAF7FF;
 	margin:0;
 }
 
-div{
-	padding:0 !important;
+header{
+	color:black;
 	text-align: center;
+	font-size:60px;
+	font-family:'Times New Roman';
+	text-shadow: 1px 1px 3px black;
+}
+
+div{
+	text-align: center;
+	padding:0;
 }
 
 thead th { 
@@ -20,7 +28,7 @@ thead th {
 }
 
 td{
-	color:white;
+	color:black;
 }
 
 table{
@@ -44,24 +52,15 @@ h6{
 }
 
 .red{
-	color:#d00;
+	color:#a00;
 	font-weight: 700;
 }
 
 .green{
-	color:#0a0;
+	color:#090;
 	font-weight: 700;
 }
 
-.frame{
-	height:140px;
-	background-color: #1d1d39;
-	/*margin:10px 5px;*/
-	border-radius:2px;
-	color:white;
-	font-weight: 500;
-	padding:20px;
-}
 
 .confirmed, .deaths, .recovered{
 	font-size:25px;
@@ -85,10 +84,11 @@ h6{
 .stats-frame{
 	flex:1;
 	height:140px;
-	background-color: #1d1d39;
-	color:white;
+	background-color: #D3D7E5;
+	color:#4A4453;
 	margin:20px 10px;
 	max-width:300px;
+	border-radius: 3px;
 	justify-content: center;
 }
 
