@@ -1,4 +1,4 @@
-let panstwa = [];
+let countries = [];
 let confirmed = 0, deaths = 0, recovered = 0;
 let newConfirmed = 0, newDeaths = 0, newRecovered = 0;
 
@@ -10,9 +10,7 @@ xhr.onload = function() {
 		responseObject = JSON.parse(xhr.responseText);
 		
 		for(let i=0; i<responseObject.Countries.length-2; i++){
-			panstwa.push(responseObject.Countries[i+2]);
-			// panstwa[i].flag = '<img width=32 alt="flag" src="img/'+(i+1)+'.png"> ';
-			// console.log(panstwa[i].flag);
+			countries.push(responseObject.Countries[i+2]);
 		}
 	}
 	prepare();
@@ -23,50 +21,48 @@ xhr.send(null);
 
 
 
-
-
 function prepare(){
 	sortowanie();
 	let tableRef = document.querySelector('tbody');
 	let temp ;
-	for(let i=0; i<panstwa.length; i++){
-		confirmed+=panstwa[i].TotalConfirmed;
-		deaths+=panstwa[i].TotalDeaths;
-		recovered+=panstwa[i].TotalRecovered;
-		newConfirmed+=panstwa[i].NewConfirmed;
-		newDeaths+=panstwa[i].NewDeaths;
-		newRecovered+=panstwa[i].NewRecovered;
+	for(let i=0; i<countries.length; i++){
+		confirmed += countries[i].TotalConfirmed;
+		deaths += countries[i].TotalDeaths;
+		recovered += countries[i].TotalRecovered;
+		newConfirmed += countries[i].NewConfirmed;
+		newDeaths += countries[i].NewDeaths;
+		newRecovered += countries[i].NewRecovered;
 
 		// Insert a row at the end of the table
 		let newRow = tableRef.insertRow(-1);
-		newRow.insertCell(0).appendChild(document.createTextNode(panstwa[i].Country));
+		newRow.insertCell(0).appendChild(document.createTextNode(countries[i].Country));
 
 		// temp = newRow.insertCell(0);
-		// $(temp).html(panstwa[i].flag+panstwa[i].Country);
+		// $(temp).html(countries[i].flag+countries[i].Country);
 		
 		temp = newRow.insertCell(1);
-		$(temp).html(panstwa[i].TotalConfirmed+"<span class='red'> (+"+panstwa[i].NewConfirmed+")</span>");
+		$(temp).html(`${countries[i].TotalConfirmed} <span class='red'> (+${countries[i].NewConfirmed})</span>`);
 
 		temp = newRow.insertCell(2);
-		$(temp).html(panstwa[i].TotalDeaths+"<span class='red'> (+"+panstwa[i].NewDeaths+")</span>");
+		$(temp).html(`${countries[i].TotalDeaths} <span class='red'> (+${countries[i].NewDeaths})</span>`);
 
 		temp = newRow.insertCell(3);
-		$(temp).html(panstwa[i].TotalRecovered+"<span class='green'> (+"+panstwa[i].NewRecovered+")</span>");
+		$(temp).html(`${countries[i].TotalRecovered} <span class='green'> (+${countries[i].NewRecovered})</span>`);
 	}
 
 	$(".confirmed").html(confirmed);
 	$(".deaths").html(deaths);
 	$(".recovered").html(recovered);
-	$(".newConfirmed").html(newConfirmed+" today");
-	$(".newDeaths").html(newDeaths+" today");
-	$(".newRecovered").html(newRecovered+" today");
+	$(".newConfirmed").html(`${newConfirmed} today`);
+	$(".newDeaths").html(`${newDeaths} today`);
+	$(".newRecovered").html(`${newRecovered} today`);
 }
 
 function sortowanie(){
-    for(let i=0; i<panstwa.length; i++){
-        for(let j=panstwa.length-1; j>i; j--){
-            if(panstwa[j].TotalConfirmed>panstwa[j-1].TotalConfirmed)
-                panstwa[j-1] = [panstwa[j], panstwa[j] = panstwa[j-1]][0];
+    for(let i=0; i<countries.length; i++){
+        for(let j=countries.length-1; j>i; j--){
+            if(countries[j].TotalConfirmed>countries[j-1].TotalConfirmed)
+                countries[j-1] = [countries[j], countries[j] = countries[j-1]][0];
         }
     }
 }
