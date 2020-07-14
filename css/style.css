@@ -35,22 +35,6 @@ table{
 	text-align: center;
 }
 
-h5{
-	margin-top:10px;
-	font-weight: 400;
-	font-size:20px;
-	text-align: left;	
-	padding-left: 20%;
-}
-
-h6{
-	margin-top: 20px;
-	font-weight: 300;
-	font-size:14px;
-	text-align: left;	
-	padding-left: 50%;
-}
-
 .red{
 	color:#a00;
 	font-weight: 700;
@@ -61,58 +45,18 @@ h6{
 	font-weight: 700;
 }
 
-
-.confirmed, .deaths, .recovered{
-	font-size:25px;
-	letter-spacing: 1px;
-}
-
-
-
-.newConfirmed, .newDeaths, .newRecovered{
-	font-weight: 300;
-}
-
-
-.stats{
-	width:100%;
-	display:flex;
-	justify-content: center;
-	margin:auto;
-}
-
-.stats-frame{
-	flex:1;
-	height:140px;
-	background-color: #D3D7E5;
-	color:#4A4453;
-	margin:20px 10px;
-	max-width:300px;
-	border-radius: 3px;
-	justify-content: center;
-}
-
-
 @media (max-width: 576px){
-	h5{
-		padding-left: 30%;
-	}
-
-	h6{
-		padding-left: 35%;
-	}
-
-	.stats{
-		flex-direction: column;
-	}
-
-	.stats-frame{
-		max-width:576px;
-		margin:10px 3%;
-		width:94%;
-	}
-
 	table{
 		font-size:14px;
+	}
+}
+
+@media (max-width: 350px){
+	table{
+		font-size:12px;
+	}
+
+	table td{
+		padding:0;
 	}
 }
