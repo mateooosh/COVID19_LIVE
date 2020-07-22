@@ -1,23 +1,17 @@
 let countries = [];
 
-let xhr = new XMLHttpRequest();
-xhr.onload = function() {
-	if(xhr.status ===200){
-		responseObject = JSON.parse(xhr.responseText);
-		
-		for(let i=0; i<responseObject.Countries.length-2; i++){
-			countries.push(responseObject.Countries[i+2]);
-		}
-	}
-	prepare();
-};
-
-xhr.open("GET", 'https://api.covid19api.com/summary', true);
-xhr.send(null);
+fetch(`https://api.covid19api.com/summary`,{})
+.then( response => response.json())
+.then( response =>{
+	for (let i = 0; i < response.Countries.length - 2; i++) 
+		countries.push(response.Countries[i + 2]);
+	
+	show();
+});
 
 
 
-let prepare = () => {
+let show = () => {
 	sort();
 	let tableRef = document.querySelector('tbody');
 	let temp ;
